@@ -2,12 +2,20 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage";
 import FeaturePage from "./pages/featuresPage/FeaturesPage";
 import Root from "./pages/root/Root";
+import DownloadPage from "./pages/dowloadPage/DownloadPage";
+import CommunityPage from "./pages/communityPage/CommunityPage";
+import LoginPage from "./pages/loginPage/LoginPage";
+import SignUpPage from "./pages/signUpPage/SignUpPage";
 
 //every object represents one route
 const router = createBrowserRouter([
   { path: '/', element: <Root/>, children: [
     { path: '/', element: <HomePage/>},
-    { path: '/features', element: <FeaturePage/>}
+    { path: '/download', element: <DownloadPage/>},
+    { path: '/community', element: <CommunityPage/>},
+    { path: '/features', element: <FeaturePage/>},
+    { path: '/login', element: <LoginPage/>},
+    { path: '/signup', element: <SignUpPage/>}
   ]}
 ]);
 
