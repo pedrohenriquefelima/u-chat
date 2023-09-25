@@ -6,10 +6,14 @@ import DownloadPage from "./pages/dowloadPage/DownloadPage";
 import CommunityPage from "./pages/communityPage/CommunityPage";
 import LoginPage from "./pages/loginPage/LoginPage";
 import SignUpPage from "./pages/signUpPage/SignUpPage";
+import ErrorPage from "./pages/errorPage/ErrorPage";
 
 //every object represents one route
 const router = createBrowserRouter([
-  { path: '/', element: <Root/>, children: [
+  { path: '/', 
+    element: <Root/>,
+    errorElement: <ErrorPage/>,
+    children: [
     { path: '/', element: <HomePage/>},
     { path: '/download', element: <DownloadPage/>},
     { path: '/community', element: <CommunityPage/>},
