@@ -1,0 +1,12 @@
+button {
+    width: 150px;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Helvetica Neue';
+    font-weight: bold;
+    background-color: #C96142;
+    color: #ffffff;
+}

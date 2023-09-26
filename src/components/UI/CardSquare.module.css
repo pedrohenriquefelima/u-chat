@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 40px;
+    width: 25%;
+}
+
+.image-container {
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    font-family: 'Noto Nastaliq Urdu';
+    font-weight: Bold;
+    line-height: 25px;
+    text-align: center;
+    width: 100%;
+    color: #080808;
+}

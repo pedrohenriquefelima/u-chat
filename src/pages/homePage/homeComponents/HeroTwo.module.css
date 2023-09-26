@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    height: 600px;
+}
+
+.text-container {
+    width: 50%;
+    padding-right: 50px;
+}
+
+.uChat {
+    text-align: center;
+}
+
+.letter-u {
+    font-size: 90px;
+    font-family: 'Helvetica Neue';
+    font-weight: bold;
+    color: #EA4D27;
+}
+
+.chat {
+    font-size: 60px;
+    font-family: 'Helvetica Neue';
+    font-weight: bold;
+    color: #0A5D69;
+}
+
+.body-text {
+    padding: 10px 20px 30px 20px;
+    line-height: 30px;
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: 'Helvetica Neue';
+    color: #707070;
+}
+
+.get-started {
+    text-align: center;
+}
+.image-container {
+    width: 50%;
+    height: 90%;
+    text-align: center;
+}
+
+.image-container img {
+    width: 70%;
+    height: 100%;
+}
