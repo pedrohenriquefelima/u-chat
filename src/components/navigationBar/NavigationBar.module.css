@@ -23,6 +23,11 @@ a {
     text-decoration: none;
 }
 
+.nav-links a:hover,
+.nav-links a.active {
+    color: #EA4D27;
+}
+
 .navbar {
     height: 8vh;
     line-height: 10vh;
@@ -38,7 +43,7 @@ a {
     width: 75%;
 }
 
-.nav-links li {
+.nav-links a {
     margin: 0 15px;
     color: #707070;
     font-size: 18px;
