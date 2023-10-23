@@ -1,0 +1,21 @@
+.app-container {
+    height: 220px;
+    background-color: #D85937;
+    margin-bottom: 100px;
+    padding: 2%;
+    text-align: center;
+}
+
+.text-call {
+    line-height: 27px;
+    font-family: 'Helvetica Neue';
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.images-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 100px 20px 100px;
+}

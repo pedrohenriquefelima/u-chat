@@ -1,0 +1,32 @@
+.question-container {
+    background-color: #ffffff;
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.question-sub-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 25px;
+    font-family: 'Noto Nastaliq Urdu';
+}
+
+.question {
+    color: #515161;
+    font-weight: bold;
+}
+
+.hide-answer {
+    display: none;
+}
+
+.show-answer {
+    line-height: 5px;
+    padding: 0px 25px 25px 25px;
+}
+
+.arrows {
+    color: #515161;
+}

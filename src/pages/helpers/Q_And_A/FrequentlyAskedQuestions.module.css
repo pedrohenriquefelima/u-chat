@@ -1,0 +1,11 @@
+.q_and_a-container {
+    margin: 70px 35px ;
+    background-color: #F5F6F9;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+.q_and_a-container h2 {
+    width: 90%;
+    margin: 10px auto;
+}
