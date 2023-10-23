@@ -1,4 +1,8 @@
+import SignIn from "./SignIn/SignIn";
+
 const LoginPage = () => {
-    return <h1>Login</h1>;
+    return (
+        <SignIn></SignIn>
+    )
 }
 export default LoginPage;

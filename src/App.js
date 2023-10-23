@@ -1,3 +1,4 @@
+import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage";
 import FeaturePage from "./pages/featuresPage/FeaturesPage";
@@ -29,8 +30,9 @@ const router = createBrowserRouter([
   ]}
 ]);
 
-
 function App() {
+
+  
   return (
     <RouterProvider router={router}/>
   );
