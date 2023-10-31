@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage";
 import FeaturePage from "./pages/featuresPage/FeaturesPage";
@@ -8,6 +8,9 @@ import CommunityPage from "./pages/communityPage/CommunityPage";
 import LoginPage from "./pages/loginPage/LoginPage";
 import SignUpPage from "./pages/signUpPage/SignUpPage";
 import ErrorPage from "./pages/errorPage/ErrorPage";
+import WelcomePage from "./pages/authenticated-pages/welcomePage/WelcomePage";
+import AuthContext from "./store/auth-context";
+import ExplorePage from "./pages/explorePage/ExplorePage";
 
 //every object represents one route
 //react can deal with dynamic paths
@@ -16,23 +19,25 @@ import ErrorPage from "./pages/errorPage/ErrorPage";
 //the routes below use a relative path (absolute path starts with /)
 //relative vs route property on NavLink
 
-const router = createBrowserRouter([
-  { path: '/', 
-    element: <Root/>,
-    errorElement: <ErrorPage/>,
-    children: [
-    { path: '', element: <HomePage/>},
-    { path: 'download', element: <DownloadPage/>},
-    { path: 'community', element: <CommunityPage/>},
-    { path: 'features', element: <FeaturePage/>},
-    { path: 'login', element: <LoginPage/>},
-    { path: 'signup', element: <SignUpPage/>}
-  ]}
-]);
-
 function App() {
+  const ctx = useContext(AuthContext);
+  console.log('userrrr', JSON.stringify(ctx.user));
+  const router = createBrowserRouter([
+    { path: '/', 
+      element: <Root/>,
+      errorElement: <ErrorPage/>,
+      children: [
+      { path: '', element: <HomePage/>},
+      { path: 'download', element: <DownloadPage/>},
+      { path: 'community', element: <CommunityPage/>},
+      { path: 'features', element: <FeaturePage/>},
+      { path: 'login', element: <LoginPage/>},
+      { path: 'signup', element: <SignUpPage/>},
+      { path: 'home', element: <WelcomePage />},
+      { path: 'explore', element: <ExplorePage/>}
+    ]}
+  ]);
 
-  
   return (
     <RouterProvider router={router}/>
   );

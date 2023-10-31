@@ -45,6 +45,9 @@ const SignInUp = (props) => {
             console.log(ctx.loginSignUpInfo);
             ctx.signUpHandler();
         }
+        if(!ctx.isLoading){
+            navigate('/home');
+        }
     }
 
     function changeModeHandler() {

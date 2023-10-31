@@ -20,24 +20,29 @@ const NavigationBar = () => {
                 <img src={LOGO} alt="Logo" className={styles['image-logo']}/>
             </div>
             <ul className={mobile ? styles['nav-links-mobile'] : styles['nav-links']} onClick={() => setMobile(false)}>
-                <li>
+                {!ctx.isLoggedIn &&<li>
                     <NavLink to='/' className={({ isActive }) => isActive ? styles.active : undefined}>Home</NavLink>
-                </li>
-                <li>
+                </li>}
+                {!ctx.isLoggedIn &&<li>
                     <NavLink to='download' className={({ isActive }) => isActive ? styles.active : undefined}>Download</NavLink>
-                </li>
+                </li>}
                 <li>
                     <NavLink to='community' className={({ isActive }) => isActive ? styles.active : undefined}>Community</NavLink>
                 </li>
-                <li>
+                {!ctx.isLoggedIn &&<li>
                     <NavLink to='features' className={({ isActive }) => isActive ? styles.active : undefined}>Features</NavLink>
+                </li>}
+                <li>
+                    <NavLink to='chats' className={({ isActive }) => isActive ? styles.active : undefined}>Chats</NavLink>
+                </li>
+                <li>
+                    <NavLink to='explore' className={({ isActive }) => isActive ? styles.active : undefined}>Explore</NavLink>
                 </li>
                 {!ctx.isLoggedIn && 
                     <li>
                         <NavLink to='login' className={({ isActive }) => isActive ? styles.active : undefined}>Login</NavLink>
                     </li>
                 }
-                
                 {!ctx.isLoggedIn && 
                     <li>
                         <NavLink to='signup' className={({ isActive }) => isActive ? styles.active : undefined}>Sign up</NavLink>
@@ -45,7 +50,7 @@ const NavigationBar = () => {
                 }
                 {ctx.isLoggedIn && 
                     <li>
-                        <NavLink to='' className={({ isActive }) => isActive ? styles.active : undefined} onClick={ctx.onLogOut}>Logout</NavLink>
+                        <NavLink to='' className={({ isActive }) => isActive ? styles.active : undefined} onClick={ctx.logOutUserHandler}>Logout</NavLink>
                     </li>
                 }
             </ul>

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { baseUrl, postRequest } from "../utils/services";
+import { baseUrl, getRequest, postRequest } from "../utils/services";
 
 //it accepts the default state
 //it return a component, an object 
@@ -9,10 +9,12 @@ const AuthContext = React.createContext({
     isLoggedIn: false,
     loginSignUpInfo: {},
     isLoading: false,
-    onLogOut: () => {},
+    allUsers: [],
     logInHandler: () => {},
     signUpHandler: () => {},
-    updateLoginSignUpFormHandler: (propertyName, value) => {}
+    logOutUserHandler: () => {},
+    updateLoginSignUpFormHandler: (propertyName, value) => {},
+    getAllUsersHandler: () => {}
 });
 
 //this is a component created so the logic is removed from the app component
@@ -21,7 +23,6 @@ export const AuthContextProvider = (props) => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [isLoading, setisLoading] = useState(false);
     const [signInUpError, setSignInUpError] = useState(null);
-
     const [ signInUpFormDetails, setSignInUpFormDetails] = useState({
         firstName: '',
         middleName: '',
@@ -30,10 +31,13 @@ export const AuthContextProvider = (props) => {
         email: '',
         password: ''
     })
-
-    function logOutHandler() {
-        setLoggedIn(false);
-    }
+    const [allUsers, setAllUsers] = useState([]);
+    
+    useEffect(()=>{
+        const user = localStorage.getItem("User");
+        setUser(JSON.parse(user));
+        setLoggedIn(true);
+    },[])
 
     const updateLoginInfo = useCallback((propertyName, value)=>{
         setSignInUpFormDetails((prev)=> {
@@ -53,6 +57,7 @@ export const AuthContextProvider = (props) => {
         if(response.error){
             return setSignInUpError(response);
         }
+        localStorage.setItem("User", JSON.stringify(response));
         setUser(response);
         setLoggedIn(true);
         setSignInUpFormDetails({
@@ -79,6 +84,7 @@ export const AuthContextProvider = (props) => {
             console.log(response);
             return setSignInUpError(response);
         }
+        localStorage.setItem("User", JSON.stringify(response));
         setUser(response);
         setLoggedIn(true);
         setSignInUpFormDetails({
@@ -91,15 +97,37 @@ export const AuthContextProvider = (props) => {
         });
     }, [signInUpFormDetails]);
 
+    const logOutUser = useCallback(()=>{
+        localStorage.removeItem('User');
+        setUser(null);
+        setLoggedIn(false);
+    }, [])
+
+    const getAllUsers = useCallback(async()=>{
+        console.log('getting all users');
+        setisLoading(true);
+        getRequest(`${baseUrl}/users`).then((result)=>{
+            const users = result.map(item => {
+                return item
+              });
+              setAllUsers(users);
+        }).catch(error => {
+            console.log(error);
+        });
+        setisLoading(false);
+    }, [allUsers.length])
+
     return <AuthContext.Provider value={{
         user: user,
         isLoggedIn: loggedIn,
         loginSignUpInfo: signInUpFormDetails,
         isLoading: isLoading,
-        onLogOut: logOutHandler,
+        allUsers: allUsers,
         logInHandler: loginUser,
         signUpHandler: signUpUser,
-        updateLoginSignUpFormHandler: updateLoginInfo
+        logOutUserHandler: logOutUser,
+        updateLoginSignUpFormHandler: updateLoginInfo,
+        getAllUsersHandler: getAllUsers
       }}>{props.children}</AuthContext.Provider>
 }
 
