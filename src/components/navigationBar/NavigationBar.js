@@ -27,6 +27,9 @@ const NavigationBar = () => {
                     <NavLink to='download' className={({ isActive }) => isActive ? styles.active : undefined}>Download</NavLink>
                 </li>}
                 <li>
+                    <NavLink to='explore' className={({ isActive }) => isActive ? styles.active : undefined}>Explore</NavLink>
+                </li>
+                <li>
                     <NavLink to='community' className={({ isActive }) => isActive ? styles.active : undefined}>Community</NavLink>
                 </li>
                 {!ctx.isLoggedIn &&<li>
@@ -34,9 +37,6 @@ const NavigationBar = () => {
                 </li>}
                 <li>
                     <NavLink to='chats' className={({ isActive }) => isActive ? styles.active : undefined}>Chats</NavLink>
-                </li>
-                <li>
-                    <NavLink to='explore' className={({ isActive }) => isActive ? styles.active : undefined}>Explore</NavLink>
                 </li>
                 {!ctx.isLoggedIn && 
                     <li>

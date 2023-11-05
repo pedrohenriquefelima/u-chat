@@ -11,6 +11,7 @@ import ErrorPage from "./pages/errorPage/ErrorPage";
 import WelcomePage from "./pages/authenticated-pages/welcomePage/WelcomePage";
 import AuthContext from "./store/auth-context";
 import ExplorePage from "./pages/explorePage/ExplorePage";
+import ChatsPage from "./pages/chatsPage/ChatsPage";
 
 //every object represents one route
 //react can deal with dynamic paths
@@ -20,8 +21,6 @@ import ExplorePage from "./pages/explorePage/ExplorePage";
 //relative vs route property on NavLink
 
 function App() {
-  const ctx = useContext(AuthContext);
-  console.log('userrrr', JSON.stringify(ctx.user));
   const router = createBrowserRouter([
     { path: '/', 
       element: <Root/>,
@@ -34,7 +33,8 @@ function App() {
       { path: 'login', element: <LoginPage/>},
       { path: 'signup', element: <SignUpPage/>},
       { path: 'home', element: <WelcomePage />},
-      { path: 'explore', element: <ExplorePage/>}
+      { path: 'explore', element: <ExplorePage/>},
+      { path: 'chats', element: <ChatsPage/>}
     ]}
   ]);
 

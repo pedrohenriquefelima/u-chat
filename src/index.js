@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthContextProvider } from './store/auth-context';
+import { ChatContextProvider } from './store/chat-context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthContextProvider><App/></AuthContextProvider>
+    <AuthContextProvider>
+      <ChatContextProvider>
+        <App/>
+      </ChatContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );
 

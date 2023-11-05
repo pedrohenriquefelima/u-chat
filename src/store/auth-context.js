@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { baseUrl, getRequest, postRequest } from "../utils/services";
 
 //it accepts the default state
@@ -32,11 +32,33 @@ export const AuthContextProvider = (props) => {
         password: ''
     })
     const [allUsers, setAllUsers] = useState([]);
-    
+
     useEffect(()=>{
-        const user = localStorage.getItem("User");
-        setUser(JSON.parse(user));
+        const varUser = localStorage.getItem("User");
+        const parsedUser = JSON.parse(varUser);
+        console.log('parsedUser',parsedUser?._id);
+        setUser(parsedUser);
         setLoggedIn(true);
+
+        const fetchData = async () => {
+            await getAllUsers();
+            let contactedPeople = await getUserChats(parsedUser?._id);
+            setAllUsers((prev)=> {
+                let filtered = prev.filter((u)=> u?._id !== parsedUser?._id);
+                filtered = filtered.map((u) => {
+                    if(contactedPeople.some((contact) => contact.members.includes(u._id))){
+                        return {...u, prevContacted: true}
+                    }else {
+                        return {...u, prevContacted: false}
+                    }   
+                })
+                return filtered;
+            })
+            
+        }
+
+        fetchData();
+        
     },[])
 
     const updateLoginInfo = useCallback((propertyName, value)=>{
@@ -104,18 +126,26 @@ export const AuthContextProvider = (props) => {
     }, [])
 
     const getAllUsers = useCallback(async()=>{
-        console.log('getting all users');
-        setisLoading(true);
-        getRequest(`${baseUrl}/users`).then((result)=>{
-            const users = result.map(item => {
-                return item
-              });
-              setAllUsers(users);
-        }).catch(error => {
-            console.log(error);
+        return new Promise(async (resolve, reject) => {
+            try {
+                setisLoading(true);
+                const result = await getRequest(`${baseUrl}/users`);
+                const users = result.map(item => item);
+                setAllUsers(users);
+                resolve(users);
+            } catch (error) {
+                console.log(error);
+                reject(error);
+            } finally {
+                setisLoading(false);
+            }
         });
-        setisLoading(false);
-    }, [allUsers.length])
+    }, [])
+
+    const getUserChats = useCallback(async(userId)=>{
+        const result = await getRequest(`${baseUrl}/chat/${userId}`);
+        return result;
+    }, [])
 
     return <AuthContext.Provider value={{
         user: user,
