@@ -1,6 +1,6 @@
 .container {
-    margin-top: 60px;
     display: flex;
-    padding: 20px;
-    justify-content: center;
+    justify-content: space-evenly;
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
 }

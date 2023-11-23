@@ -126,20 +126,25 @@ export const AuthContextProvider = (props) => {
     }, [])
 
     const getAllUsers = useCallback(async()=>{
-        return new Promise(async (resolve, reject) => {
-            try {
-                setisLoading(true);
-                const result = await getRequest(`${baseUrl}/users`);
-                const users = result.map(item => item);
-                setAllUsers(users);
-                resolve(users);
-            } catch (error) {
-                console.log(error);
-                reject(error);
-            } finally {
-                setisLoading(false);
-            }
-        });
+        // return new Promise(async (resolve, reject) => {
+        //     try {
+        //         setisLoading(true);
+        //         const result = await getRequest(`${baseUrl}/users`);
+        //         if(result){
+        //             const users = result.map(item => item);
+        //             setAllUsers(users);
+        //             resolve(users);
+        //         }else {
+        //             setAllUsers([]);
+        //             resolve('')
+        //         }
+        //     } catch (error) {
+        //         console.log(error);
+        //         reject(error);
+        //     } finally {
+        //         setisLoading(false);
+        //     }
+        // });
     }, [])
 
     const getUserChats = useCallback(async(userId)=>{
