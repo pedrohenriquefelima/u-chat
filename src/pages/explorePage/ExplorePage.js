@@ -10,7 +10,9 @@ const ExplorePage = () => {
                 <HeaderExplore/>
                 <UsersFilters/>
             </div>
-            <UsersContainer/>
+            <div className={styles['users-container-outer']}>
+                <UsersContainer/>
+            </div>
         </div>
     )
 }

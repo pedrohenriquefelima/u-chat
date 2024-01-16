@@ -1,3 +1,8 @@
 .header-container {
     padding: 10px 40px 20px 40px;
 }
+
+.users-container-outer {
+    width: 95%;
+    margin: 0 auto;
+}

@@ -21,9 +21,9 @@ const QuestionAndAnswer = (props) => {
 
     return (
         <div className={styles['question-container']}>
-            <div className={styles['question-sub-container']}>
+            <div className={styles['question-sub-container']} onClick={showAnswerHandler}>
                 <div className={styles.question}>{props.question}</div>
-                <div onClick={showAnswerHandler}>
+                <div>
                     {answerVisibility === 'hide-answer' ? <FontAwesomeIcon icon="fa-solid fa-angle-down" className={styles.arrows}/> : <FontAwesomeIcon icon="fa-solid fa-angle-up" className={styles.arrows}/>}
                 </div>
             </div>

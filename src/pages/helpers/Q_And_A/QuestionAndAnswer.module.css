@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 10px 25px;
-    font-family: 'Noto Nastaliq Urdu';
+    font-family: Noto Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
 }
 
 .question {

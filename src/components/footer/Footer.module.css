@@ -1,0 +1,22 @@
+.container {
+    background-color: #EA4D27;
+}
+
+.sub-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.bottom {
+    background-color: #0A5D69;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: #ffffff;
+}

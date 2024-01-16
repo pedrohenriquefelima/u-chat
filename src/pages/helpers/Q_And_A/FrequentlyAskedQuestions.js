@@ -27,7 +27,7 @@ const FrequentlyAskedQuestions = (props) => {
     ]
 
     return (
-        <div className={styles['q_and_a-container']}>
+        <div className={`${styles['q_and_a-container']} ${styles['scroll-effect']}`}>
             <h2>Frequently Asked Questions</h2>
             {Q_AND_A.map(item => {
                 return <QuestionAndAnswer key={item.id} question={item.question} answer={item.answer}/>

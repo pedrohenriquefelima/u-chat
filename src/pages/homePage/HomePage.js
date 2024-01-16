@@ -1,18 +1,14 @@
 import React from "react";
-import HeroOne from "./homeComponents/HeroOne";
-import HeroTwo from "./homeComponents/HeroTwo"
-import HeroThree from "./homeComponents/HeroThree";
+import HeroOne from "./homeComponents/MainHomeContent";
 import FrequentlyAskedQuestions from "../helpers/Q_And_A/FrequentlyAskedQuestions";
-import DownLoadAppCallOut from "../helpers/DownLoadAppCallOut";
+import Footer from "../../components/footer/Footer";
 
 const HomePage = () => {
     return (
         <>
             <HeroOne/>
-            <HeroTwo/>
-            <HeroThree/>
             <FrequentlyAskedQuestions/>
-            <DownLoadAppCallOut/>
+            <Footer/>
         </>
     )
 };

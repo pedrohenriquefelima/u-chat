@@ -1,0 +1,38 @@
+* {
+    font-family: Noto Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+.item-container-link {
+    min-width: 200px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-title {
+    width: 50%;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500px;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+.name {
+    font-size: 14px;
+    margin: 2px 0;
+    text-align: center;
+}
+
+.link-text {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.link-text:hover {
+    color: #0A5D69;
+}

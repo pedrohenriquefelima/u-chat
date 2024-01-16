@@ -1,4 +1,22 @@
+.container-learning {
+    display: flex;
+    height: 170px;
+    justify-content: space-evenly;
+}
+
 .enthusiasts {
     color: #D85937;
     margin-bottom: 10px;
+}
+
+.hero-text {
+    width: 50%;
+    height: auto;
+    line-height: 30px;
+}
+
+.learning {
+    margin-top: 30px;
+    margin-left: 2%;
+    width: 10%;
 }

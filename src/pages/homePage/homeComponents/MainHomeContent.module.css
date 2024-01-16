@@ -1,0 +1,187 @@
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1450px;
+    margin: 40px auto 0 auto;
+}
+
+.hero-margin-top {
+    margin: 80px auto 0 auto;
+}
+
+.welcome {
+    width: 600px;
+    height: 625px;
+    flex-grow: 1;
+    display: flex;
+    padding-left: 20px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-one-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    flex-grow: 1;
+    height: 625px;
+}
+
+.video-call {
+    width: 80%;
+    height: 80%;
+}
+
+.welcoming-text {
+    font-size: 90px;
+    text-align: center;
+    line-height: 150px;
+    font-variant: normal;
+    font-family: Noto Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    color:#EA4D27;
+}
+
+.welcoming-subtext {
+    margin-bottom: 20px;
+    margin-top: 0;
+    font-family: Noto Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    font-size: 28px;
+    line-height: 40px;
+    color: #515164;
+}
+.unordered-list-welcome {
+    margin-bottom: 20px;
+}
+
+ul li {
+    margin: 14px 0px 12px 0px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Noto Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    font-variant: normal;
+    line-height: 1.5715;
+    color: #515164;
+}
+ul li i {
+    margin-right: 8px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.get-started-button {
+    box-sizing: border-box;
+    width: 160px;
+    height: 40px;
+    padding-bottom: 46px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #EA4D27;
+    background-color: #EA4D27;
+    color: #fff;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.get-started-button:hover {
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #EA4D27;
+    color: #EA4D27;
+}
+
+/*hero two*/
+.hero-two-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    flex-grow: 1;
+    height: 500px;
+}
+
+.hero-two-image img {
+    width: 90%;
+    height: 90%;
+}
+
+.text-container {
+    width: 600px;
+    flex-grow: 1;
+    width: 50%;
+    padding-left: 100px;
+}
+
+.uChat {
+    text-align: center;
+}
+
+.letter-u {
+    font-size: 90px;
+    font-family: 'Helvetica Neue';
+    font-weight: bold;
+    color: #EA4D27;
+}
+
+.chat {
+    font-size: 60px;
+    font-family: 'Helvetica Neue';
+    font-weight: bold;
+    color: #0A5D69;
+}
+
+.body-text {
+    padding: 10px 20px 30px 20px;
+    line-height: 30px;
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: 'Helvetica Neue';
+    color: #707070;
+}
+
+.get-started {
+    text-align: center;
+}
+
+.scroll-effect {
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
+    animation-duration: 1ms;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .text-container {
+      padding-left: 0px;
+    }
+
+    .welcoming-text {
+        font-size: 80px;
+    }
+
+    .hero-two-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 600px;
+        flex-grow: 1;
+        height: 400px;
+    }
+    
+    .hero-two-image img {
+        width: 70%;
+        height: 90%;
+    }
+  }

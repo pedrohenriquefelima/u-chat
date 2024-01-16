@@ -1,12 +1,21 @@
 .button {
-    width: 150px;
-    padding: 10px;
-    border-radius: 50px;
-    border: none;
-    font-size: 18px;
-    text-align: center;
-    font-family: 'Helvetica Neue';
+    box-sizing: border-box;
+    width: 160px;
+    height: 40px;
+    padding-bottom: 46px;
+    font-size: 16px;
     font-weight: bold;
-    background-color: #C96142;
-    color: #ffffff;
+    border: 1px solid #EA4D27;
+    background-color: #EA4D27;
+    color: #fff;
+    text-align: center;
+    border-radius: 25px;
+}
+
+/*not working*/
+.get-started-button:hover {
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #EA4D27;
+    color: #EA4D27;
 }
