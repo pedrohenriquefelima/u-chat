@@ -4,9 +4,14 @@
     justify-content: space-evenly;
 }
 
+.online-text {
+    color: #0A5D69;;
+}
+
 .enthusiasts {
     color: #D85937;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .hero-text {

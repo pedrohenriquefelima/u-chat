@@ -3,18 +3,28 @@
     justify-content: space-between;
     align-items: center; /* Add this line */
     text-align: center;
+    width: 90%;
+    margin: 8px auto;
+}
+
+.main-filter {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
 }
 
 .filtering-container .button {
+    position: relative;
     height: 35px;
     width: 110px;
     padding: 0px 10px;
     font-size: 14px;
     line-height: 25px;
-    border-radius: 20px;
-    color: #0A5D69;
+    border-radius: 10px;
+    color: #737373;
     font-weight: bold;
-    border: 2px solid #0A5D69;
+    border: 2px solid #737373;
+    cursor: pointer;
 }
 
 .clear {
@@ -32,12 +42,78 @@
 
 .button:hover,.clear:hover {
     color: #ffffff;
-    background-color: #0A5D69;
+    background-color: #737373;
 }
 
+.dropdown-ul {
+    position: absolute; /* Position below the triggering element */
+    margin-top: 10px;
+    width: 250px;
+    height: 350px;
+    overflow:scroll;
 
-.search {
-    background-color: red;
-    width: 460px;
+    background-color: white;
+    padding: 20px 20px;
+    border: 2px solid #737373;
+    border-radius: 10px;
+    text-align: left;
+  }
+
+  .type-here {
+    width: 98%;
+    height: 45px;
+    padding: 20px 20px 20px 40px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    /* caret-color: transparent; */
+    background-color: #E2E5E9;
+    
+  }
+
+  .type-here:focus {
+    outline: none;
+  }
+
+  .inputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 10px; /* Adjust the left position as needed */
+    color: #131313; /* Set the color you desire */
+  }
+
+  .group-title {
+    color: #515164;
+    font-weight: bold;
+  }
+  
+  .option-item {
+    color: #515164;
+    /* height:30px; */
+    padding: 6px 10px;
     border-radius: 15px;
-}
+
+  }
+
+  .item-selected {
+    background-color: lightcoral;
+  }
+
+  .option-item-hover:hover{
+    background-color: #E2E5E9;
+  }
+  /*#515164;*/
+  
+  .item-hide {
+    display:none;
+  }
+
+  .item-show {
+    display: block;
+  }
