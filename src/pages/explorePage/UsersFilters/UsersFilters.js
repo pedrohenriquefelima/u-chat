@@ -3,56 +3,20 @@ import styles from './UsersFilters.module.css';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const UsersFilters = () => {
-    const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    const interestOptionsValues = [
-        { name: 'Reading', popular: true },
-        { name: 'Writing', popular: true },
-        { name: 'Sleeping', popular: false },
-        { name: 'Coding', popular: true },
-        { name: 'Gaming', popular: true },
-        { name: 'Traveling', popular: true },
-        { name: 'Cooking', popular: false },
-        { name: 'Photography', popular: true },
-        { name: 'Fitness', popular: false },
-        { name: 'Painting', popular: true },
-        { name: 'Music', popular: true },
-        { name: 'Movies', popular: true },
-        { name: 'Dancing', popular: false },
-        { name: 'Learning', popular: true },
-        { name: 'Teaching', popular: false },
-        { name: 'Singing', popular: true },
-        { name: 'Hiking', popular: true },
-        { name: 'Shopping', popular: false },
-        { name: 'Yoga', popular: true },
-        { name: 'Meditation', popular: true },
-      ]
-    const [interestOptions, setInterestOptions] = useState([]);
+const UsersFilters = ({interestOptionsValues}) => {
+    console.log('interestOptionsValues',JSON.stringify(interestOptionsValues));
+
+    const [interestOptions, setInterestOptions] = useState(interestOptionsValues);
     const [open, setOpen] = useState(false)
     const [selectedInterests, setSelectedInterest] = useState([]);
     const [inputValue, setInputValue] = useState("");
 
-    useEffect(()=>{
-        interestOptionsValues.sort((a, b) => a.name.localeCompare(b.name));
-        //remove popula ones and put on its on grouping
-        let interestGrouped = [];
-        interestGrouped.push({Popular: interestOptionsValues.filter(item => item.popular)});
-
-        for (let step = 0; step < alphabet.length; step++) {
-            console.log(alphabet[step]);
-            const letter = alphabet[step].toLowerCase();
-            interestGrouped.push({[alphabet[step]] : interestOptionsValues.filter(item => item.name.toLowerCase().startsWith(letter) && !item.popular)});
-        }
-        console.log(JSON.stringify(interestGrouped));
-        //remove all groups with empty arrays
-       
-        setInterestOptions( interestGrouped.filter(item => Object.values(item)[0].length > 0));
-    },[])
-
     function handleItemClick(objItem) {
-        const exists = selectedInterests?.some(item => item.name === objItem.name);
+        const exists = selectedInterests?.some(item => {
+            console.log(JSON.stringify(item));
+            return item.label === objItem.label});
         if(exists) {
-            const selectedInteTemp = selectedInterests?.filter(item => item.name != objItem.name);
+            const selectedInteTemp = selectedInterests?.filter(item => item.label != objItem.label);
             console.log('selectedInteTemp:::', JSON.stringify(selectedInteTemp));
             setSelectedInterest(selectedInteTemp);
             return;
@@ -76,8 +40,9 @@ const UsersFilters = () => {
                             {selectedInterests?.length > 0 &&<div>
                                 {JSON.stringify(selectedInterests)}
                             </div>}
-                       {
+                       {    
                             interestOptions?.map(option => {
+                                console.log('optionssss', JSON.stringify(interestOptions));
                                 const propertyNames = Object.keys(option);
                                 const arrayValue = option[propertyNames[0]];
                                 console.log('propertyNames: ', propertyNames, 'arrayValue: ', JSON.stringify(arrayValue));
@@ -88,7 +53,7 @@ const UsersFilters = () => {
                                         <div>
                                             <span className={[`${styles['group-title']} ${propertyNames[0].toLowerCase().startsWith(inputValue) ||  inputValue === ""? styles['item-show'] : styles['item-hide']}`]}>{propertyNames}</span>
                                             {arrayValue?.map(item => {
-                                                return <li className={[`${styles['option-item']} ${selectedInterests?.some(inter => inter.name === item.name) ? styles['item-selected']  : styles['option-item-hover']} ${item?.name?.toLowerCase().startsWith(inputValue) ? styles['item-show'] : styles['item-hide']}`]} onClick={() => handleItemClick(item)}>{item.name}</li>
+                                                return <li className={[`${styles['option-item']} ${selectedInterests?.some(inter => inter.label === item.label) ? styles['item-selected']  : styles['option-item-hover']} ${item?.label?.toLowerCase().startsWith(inputValue) ? styles['item-show'] : styles['item-hide']}`]} onClick={() => handleItemClick(item)}>{item.label}</li>
                                             })}
                                         </div>)
                             })

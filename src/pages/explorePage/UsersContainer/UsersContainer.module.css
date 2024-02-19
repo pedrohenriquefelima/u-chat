@@ -3,3 +3,11 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.image-empty-container {
+    text-align: center;
+    padding: 40px;
+}
+.image-empty {
+    width: 30%;
+}
