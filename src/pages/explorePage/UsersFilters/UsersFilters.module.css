@@ -48,7 +48,7 @@
 .dropdown-ul {
     position: absolute; /* Position below the triggering element */
     margin-top: 10px;
-    width: 250px;
+    width: 450px;
     height: 350px;
     overflow:scroll;
 
@@ -76,6 +76,7 @@
   }
 
   .inputContainer {
+    margin-bottom: 6px;
     position: relative;
     display: flex;
     align-items: center;
@@ -89,16 +90,10 @@
   }
 
   .group-title {
+    height: 30px;
+    line-height: 22px;
     color: #515164;
     font-weight: bold;
-  }
-  
-  .option-item {
-    color: #515164;
-    /* height:30px; */
-    padding: 6px 10px;
-    border-radius: 15px;
-
   }
 
   .item-selected {
@@ -116,4 +111,13 @@
 
   .item-show {
     display: block;
+  }
+
+  .option-container {
+
+    margin-bottom: 10px;
+  }
+  .option-item-container {
+    display: flex;
+    flex-wrap: wrap;
   }

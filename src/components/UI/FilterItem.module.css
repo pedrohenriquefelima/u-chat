@@ -1,0 +1,20 @@
+.option {
+    height: 35px;
+    line-height: 15px;
+    margin: 2px 4px;
+    padding: 4px 7px;
+    border-radius: 20px;
+    text-align: center;
+    color: #515164;
+    background-color: #eeeeee;
+}
+
+.option:hover {
+    background-color:#999999;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: 	#999999;
+    color: #ffff;
+}

@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './UsersFilters.module.css';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FilterItem from '../../../components/UI/FilterItem';
+
 
 const UsersFilters = ({interestOptionsValues}) => {
     console.log('interestOptionsValues',JSON.stringify(interestOptionsValues));
@@ -27,38 +29,51 @@ const UsersFilters = ({interestOptionsValues}) => {
         })
     }
 
+    function selectedItemHandler(item) {
+        //only add if it hasn't been added already
+        const exist = selectedInterests.find(option => option.label === item.label);
+        if(!exist) {
+            setSelectedInterest((prev)=>{
+                return [...prev, item];
+            })
+        }else {
+            const removed = selectedInterests.filter(option => option.label !== item.label);
+            console.log(removed);
+            setSelectedInterest(removed);
+        }
+    }
+
     return (
         <div className={styles['filtering-container']}>
             <div className={styles['main-filter']}>
                 <div>
                 <div className={styles.button} onClick={()=>setOpen(!open)}>Interests</div>
-                    {open &&<ul className={styles['dropdown-ul']}>
+                    {open &&<div className={styles['dropdown-ul']}>
                             <div className={styles.inputContainer}>
                                 <FontAwesomeIcon icon={faSearch}  className={styles.icon} />
                                 <input className={styles['type-here']} type='text' placeholder='Type here...' onChange={(e)=>setInputValue(e.target.value)} value={inputValue}/>
                             </div>
-                            {selectedInterests?.length > 0 &&<div>
-                                {JSON.stringify(selectedInterests)}
-                            </div>}
                        {    
                             interestOptions?.map(option => {
-                                console.log('optionssss', JSON.stringify(interestOptions));
                                 const propertyNames = Object.keys(option);
                                 const arrayValue = option[propertyNames[0]];
-                                console.log('propertyNames: ', propertyNames, 'arrayValue: ', JSON.stringify(arrayValue));
-                                console.log(inputValue);
+                
                                 // const shouldHide = arrayValue.some(value => value.name !== inputValue);
                                 
                                 return (
-                                        <div>
+                                        <div className={styles['option-container']}>
                                             <span className={[`${styles['group-title']} ${propertyNames[0].toLowerCase().startsWith(inputValue) ||  inputValue === ""? styles['item-show'] : styles['item-hide']}`]}>{propertyNames}</span>
-                                            {arrayValue?.map(item => {
-                                                return <li className={[`${styles['option-item']} ${selectedInterests?.some(inter => inter.label === item.label) ? styles['item-selected']  : styles['option-item-hover']} ${item?.label?.toLowerCase().startsWith(inputValue) ? styles['item-show'] : styles['item-hide']}`]} onClick={() => handleItemClick(item)}>{item.label}</li>
-                                            })}
+                                            <div className={styles['option-item-container']}>
+                                                {arrayValue?.map(item => {
+                                                    //return <span  className={[` ${selectedInterests?.some(inter => inter.label === item.label) ? styles['item-selected']  : styles['option-item-hover']} ${item?.label?.toLowerCase().startsWith(inputValue) ? styles['item-show'] : styles['item-hide']}`]} onClick={() => handleItemClick(item)}>{item.label}</span>
+                                                    return <FilterItem key={item._id} item={item} selectedOption={selectedItemHandler} arraySelected={selectedInterests}/>
+                                                })}
+                                            </div>
+                                            
                                         </div>)
                             })
                        }
-                    </ul>}
+                    </div>}
                 </div>
                 
                 <div className={styles.button}>Learning</div>
