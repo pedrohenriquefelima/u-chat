@@ -96,27 +96,23 @@
     font-weight: bold;
   }
 
-  .item-selected {
-    background-color: lightcoral;
-  }
-
-  .option-item-hover:hover{
+  /* .option-item-hover:hover{
     background-color: #E2E5E9;
-  }
-  /*#515164;*/
+  } */
+  /*#0f0f0f;*/
   
-  .item-hide {
+  /* .item-hide {
     display:none;
-  }
+  } */
 
-  .item-show {
+  /* .item-show {
     display: block;
-  }
+  } */
 
   .option-container {
-
     margin-bottom: 10px;
   }
+  
   .option-item-container {
     display: flex;
     flex-wrap: wrap;
