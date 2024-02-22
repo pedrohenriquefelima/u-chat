@@ -1,0 +1,24 @@
+.inner-container {
+    width: 250px;
+    height: 485px;
+    overflow: scroll;
+}
+
+.item-container {
+    display: flex;
+    margin-bottom: 5px;
+    padding: 0 10px;
+    line-height: 30px;
+}
+
+.flag-custom-size {
+    width: 40px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.item-container:hover {
+    background-color: #eeeeee;
+    border-radius: 4px;
+}

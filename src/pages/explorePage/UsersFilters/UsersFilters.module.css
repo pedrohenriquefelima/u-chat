@@ -51,13 +51,14 @@
     width: 450px;
     height: 350px;
     overflow:scroll;
-
     background-color: white;
     padding: 20px 20px;
     border: 2px solid #737373;
     border-radius: 10px;
     text-align: left;
   }
+
+
 
   .type-here {
     width: 98%;
@@ -116,4 +117,9 @@
   .option-item-container {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .flagcontainer {
+    display: flex;
+    flex-direction: column;
   }

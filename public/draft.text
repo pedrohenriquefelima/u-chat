@@ -1,0 +1,947 @@
+import React from 'react'; // Import React if you haven't already
+import { Af, Al, Dz, As, Ad, Ao, Ai, Ag, Ar, Am, Aw, Au, At, Az, Bs, Bh, Bd, Bb, By, Be, Bz, Bj, Bm, Bt, Bo, Ba, Bw, Br, Io, Bg, Bf, Bi, Kh, Cm, Ca, Cv, Ky, Cf, Td, Cl, Cn, Co, Km, Cg, Cd, Ck, Cr, Ci, Hr, Cu, Cw, Cy, Cz, Dk, Dj, Dm, Do, Ec, Eg, Sv, Gq, Er, Ee, Et, Fk, Fo, Fj, Fi, Fr, Pf, Ga, Gm, Ge, De, Gh, Gi, Gr, Gl, Gd, Gu, Gt, Gg, Gn, Gw, Ht, Hn, Hk, Hu, Is, In, Id, Ir, Iq, Ie, Im, Il, It, Jm, Jp, Je, Jo, Kz, Ke, Ki, Kp, Kr, Kw, Kg, La, Lv, Lb, Ls, Lr, Ly, Li, Lt, Lu, Mo, Mk, Mg, Mw, My, Mv, Ml, Mt, Mh, Mq, Mr, Mu, Mx, Fm, Md, Mc, Mn, Me, Ms, Ma, Mz, Mm, Na, Nr, Np, Nl, Nz, Ni, Ne, Ng, Nu, Nf, Mp, No, Om, Pk, Pw, Ps, Pa, Pg, Py, Pe, Ph, Pn, Pl, Pt, Pr, Qa, Ro, Ru, Rw, Kn, Lc, Ws, Sm, St, Sa, Sn, Rs, Sc, Sl, Sg, Sx, Sk, Si, Sb, So, Za, Ss, Es, Lk, Sd, Sr, Sz, Se, Ch, Sy, Tw, Tj, Tz, Th, Tg, Tk, To, Tt, Tn, Tr, Tm, Tc, Tv, Ug, Ua, Ae, Gb, Us, Uy, Uz, Vu, Ve, Vn, Vi, Ye, Zm, Zw } from "react-flags-select";
+
+
+// List of countries with their codes
+var countries = [
+    {code: Af, countryName: "Afghanistan", language: ""},
+    {code: Al, countryName: "Albania", language: ""},
+    {code: Dz, countryName: "Albania", language: ""},
+    : "Albania",
+    : "Algeria",
+    AS: "American Samoa",
+    AD: "Andorra",
+    AO: "Angola",
+    AI: "Anguilla",
+    AG: "Antigua and Barbuda",
+    AR: "Argentina",
+    AM: "Armenia",
+    AW: "Aruba",
+    AU: "Australia",
+    AT: "Austria",
+    AZ: "Azerbaijan",
+    BS: "Bahamas",
+    BH: "Bahrain",
+    BD: "Bangladesh",
+    BB: "Barbados",
+    BY: "Belarus",
+    BE: "Belgium",
+    BZ: "Belize",
+    BJ: "Benin",
+    BM: "Bermuda",
+    BT: "Bhutan",
+    BO: "Bolivia, Plurinational State of",
+    BA: "Bosnia and Herzegovina",
+    BW: "Botswana",
+    BR: "Brazil",
+    IO: "British Indian Ocean Territory",
+    BG: "Bulgaria",
+    BF: "Burkina Faso",
+    BI: "Burundi",
+    KH: "Cambodia",
+    CM: "Cameroon",
+    CA: "Canada",
+    CV: "Cape Verde",
+    KY: "Cayman Islands",
+    CF: "Central African Republic",
+    TD: "Chad",
+    CL: "Chile",
+    CN: "China",
+    CO: "Colombia",
+    KM: "Comoros",
+    CG: "Congo",
+    CD: "Democratic Republic of the Congo",
+    CK: "Cook Islands",
+    CR: "Costa Rica",
+    CI: "Côte d'Ivoire",
+    HR: "Croatia",
+    CU: "Cuba",
+    CW: "Curaçao",
+    CY: "Cyprus",
+    CZ: "Czech Republic",
+    DK: "Denmark",
+    DJ: "Djibouti",
+    DM: "Dominica",
+    DO: "Dominican Republic",
+    EC: "Ecuador",
+    EG: "Egypt",
+    SV: "El Salvador",
+    GQ: "Equatorial Guinea",
+    ER: "Eritrea",
+    EE: "Estonia",
+    ET: "Ethiopia",
+    FK: "Falkland Islands (Malvinas)",
+    FO: "Faroe Islands",
+    FJ: "Fiji",
+    FI: "Finland",
+    FR: "France",
+    PF: "French Polynesia",
+    GA: "Gabon",
+    GM: "Gambia",
+    GE: "Georgia",
+    DE: "Germany",
+    GH: "Ghana",
+    GI: "Gibraltar",
+    GR: "Greece",
+    GL: "Greenland",
+    GD: "Grenada",
+    GU: "Guam",
+    GT: "Guatemala",
+    GG: "Guernsey",
+    GN: "Guinea",
+    GW: "Guinea-Bissau",
+    HT: "Haiti",
+    HN: "Honduras",
+    HK: "Hong Kong",
+    HU: "Hungary",
+    IS: "Iceland",
+    IN: "India",
+    ID: "Indonesia",
+    IR: "Iran, Islamic Republic of",
+    IQ: "Iraq",
+    IE: "Ireland",
+    IM: "Isle of Man",
+    IL: "Israel",
+    IT: "Italy",
+    JM: "Jamaica",
+    JP: "Japan",
+    JE: "Jersey",
+    JO: "Jordan",
+    KZ: "Kazakhstan",
+    KE: "Kenya",
+    KI: "Kiribati",
+    KP: "North Korea",
+    KR: "South Korea",
+    KW: "Kuwait",
+    KG: "Kyrgyzstan",
+    LA: "Lao People's Democratic Republic",
+    LV: "Latvia",
+    LB: "Lebanon",
+    LS: "Lesotho",
+    LR: "Liberia",
+    LY: "Libya",
+    LI: "Liechtenstein",
+    LT: "Lithuania",
+    LU: "Luxembourg",
+    MO: "Macao",
+    MK: "Republic of Macedonia",
+    MG: "Madagascar",
+    MW: "Malawi",
+    MY: "Malaysia",
+    MV: "Maldives",
+    ML: "Mali",
+    MT: "Malta",
+    MH: "Marshall Islands",
+    MQ: "Martinique",
+    MR: "Mauritania",
+    MU: "Mauritius",
+    MX: "Mexico",
+    FM: "Micronesia, Federated States of",
+    MD: "Republic of Moldova",
+    MC: "Monaco",
+    MN: "Mongolia",
+    ME: "Montenegro",
+    MS: "Montserrat",
+    MA: "Morocco",
+    MZ: "Mozambique",
+    MM: "Myanmar",
+    NA: "Namibia",
+    NR: "Nauru",
+    NP: "Nepal",
+    NL: "Netherlands",
+    NZ: "New Zealand",
+    NI: "Nicaragua",
+    NE: "Niger",
+    NG: "Nigeria",
+    NU: "Niue",
+    NF: "Norfolk Island",
+    MP: "Northern Mariana Islands",
+    NO: "Norway",
+    OM: "Oman",
+    PK: "Pakistan",
+    PW: "Palau",
+    PS: "Palestinian Territory",
+    PA: "Panama",
+    PG: "Papua New Guinea",
+    PY: "Paraguay",
+    PE: "Peru",
+    PH: "Philippines",
+    PN: "Pitcairn",
+    PL: "Poland",
+    PT: "Portugal",
+    PR: "Puerto Rico",
+    QA: "Qatar",
+    RO: "Romania",
+    RU: "Russia",
+    RW: "Rwanda",
+    KN: "Saint Kitts and Nevis",
+    LC: "Saint Lucia",
+    WS: "Samoa",
+    SM: "San Marino",
+    ST: "Sao Tome and Principe",
+    SA: "Saudi Arabia",
+    SN: "Senegal",
+    RS: "Serbia",
+    SC: "Seychelles",
+    SL: "Sierra Leone",
+    SG: "Singapore",
+    SX: "Sint Maarten",
+    SK: "Slovakia",
+    SI: "Slovenia",
+    SB: "Solomon Islands",
+    SO: "Somalia",
+    ZA: "South Africa",
+    SS: "South Sudan",
+    ES: "Spain",
+    LK: "Sri Lanka",
+    SD: "Sudan",
+    SR: "Suriname",
+    SZ: "Swaziland",
+    SE: "Sweden",
+    CH: "Switzerland",
+    SY: "Syria",
+    TW: "Taiwan",
+    TJ: "Tajikistan",
+    TZ: "Tanzania",
+    TH: "Thailand",
+    TG: "Togo",
+    TK: "Tokelau",
+    TO: "Tonga",
+    TT: "Trinidad and Tobago",
+    TN: "Tunisia",
+    TR: "Turkey",
+    TM: "Turkmenistan",
+    TC: "Turks and Caicos Islands",
+    TV: "Tuvalu",
+    UG: "Uganda",
+    UA: "Ukraine",
+    AE: "United Arab Emirates",
+    GB: "United Kingdom",
+    US: "United States",
+    UY: "Uruguay",
+    UZ: "Uzbekistan",
+    VU: "Vanuatu",
+    VE: "Venezuela, Bolivarian Republic of",
+    VN: "Viet Nam",
+    VI: "Virgin Islands",
+    YE: "Yemen",
+    ZM: "Zambia",
+    ZW: "Zimbabwe",
+];
+
+// Function to format the country code
+const formatCountryCode = (code) => {
+    return code.charAt(0).toUpperCase() + code.charAt(1).toLowerCase();
+};
+
+// Initialize an empty list to store country objects
+const countriesList = [];
+
+// Loop through each country in the countries object
+for (const countryCode in countries) {
+    // Format the country code
+    const formattedCountryCode = formatCountryCode(countryCode);
+
+    // Determine the flag component based on the formatted country code
+    let FlagComponent;
+    switch (formattedCountryCode) {
+        case 'Af':
+            FlagComponent = Af;
+            break;
+        case 'Al':
+            FlagComponent = Al;
+            break;
+        case 'Dz':
+            FlagComponent = Dz;
+            break;
+        case 'As':
+            FlagComponent = As;
+            break;
+        case 'Ad':
+            FlagComponent = Ad;
+            break;
+        // Add more cases for additional countries
+        default:
+            // Handle case where the flag component is not found
+            FlagComponent = null;
+    }
+
+    switch (formattedCountryCode) {
+        case 'Af':
+            FlagComponent = Af;
+            break;
+        case 'Al':
+            FlagComponent = Al;
+            break;
+        case 'Dz':
+            FlagComponent = Dz;
+            break;
+        case 'As':
+            FlagComponent = As;
+            break;
+        case 'Ad':
+            FlagComponent = Ad;
+            break;
+        case 'Ao':
+            FlagComponent = Ao;
+            break;
+        case 'Ai':
+            FlagComponent = Ai;
+            break;
+        case 'Ag':
+            FlagComponent = Ag;
+            break;
+        case 'Ar':
+            FlagComponent = Ar;
+            break;
+        case 'Am':
+            FlagComponent = Am;
+            break;
+        case 'Aw':
+            FlagComponent = Aw;
+            break;
+        case 'Au':
+            FlagComponent = Au;
+            break;
+        case 'At':
+            FlagComponent = At;
+            break;
+        case 'Az':
+            FlagComponent = Az;
+            break;
+        // Add more cases for additional countries
+        case 'Bs':
+            FlagComponent = Bs;
+            break;
+        case 'Bh':
+            FlagComponent = Bh;
+            break;
+        case 'Bd':
+            FlagComponent = Bd;
+            break;
+        case 'Bb':
+            FlagComponent = Bb;
+            break;
+        case 'By':
+            FlagComponent = By;
+            break;
+        case 'Be':
+            FlagComponent = Be;
+            break;
+        case 'Bz':
+            FlagComponent = Bz;
+            break;
+        case 'Bj':
+            FlagComponent = Bj;
+            break;
+        case 'Bm':
+            FlagComponent = Bm;
+            break;
+        case 'Bt':
+            FlagComponent = Bt;
+            break;
+        case 'Bo':
+            FlagComponent = Bo;
+            break;
+        case 'Ba':
+            FlagComponent = Ba;
+            break;
+        case 'Bw':
+            FlagComponent = Bw;
+            break;
+        case 'Br':
+            FlagComponent = Br;
+            break;
+        case 'Io':
+            FlagComponent = Io;
+            break;
+        case 'Bg':
+            FlagComponent = Bg;
+            break;
+        case 'Bf':
+            FlagComponent = Bf;
+            break;
+        case 'Bi':
+            FlagComponent = Bi;
+            break;
+        case 'Kh':
+            FlagComponent = Kh;
+            break;
+        case 'Cm':
+            FlagComponent = Cm;
+            break;
+        case 'Ca':
+            FlagComponent = Ca;
+            break;
+        case 'Cv':
+            FlagComponent = Cv;
+            break;
+        case 'Ky':
+            FlagComponent = Ky;
+            break;
+        case 'Cf':
+            FlagComponent = Cf;
+            break;
+        case 'Td':
+            FlagComponent = Td;
+            break;
+        case 'Cl':
+            FlagComponent = Cl;
+            break;
+        case 'Cn':
+            FlagComponent = Cn;
+            break;
+        case 'Co':
+            FlagComponent = Co;
+            break;
+        case 'Km':
+            FlagComponent = Km;
+            break;
+        case 'Cg':
+            FlagComponent = Cg;
+            break;
+        case 'Cd':
+            FlagComponent = Cd;
+            break;
+        case 'Ck':
+            FlagComponent = Ck;
+            break;
+        case 'Cr':
+            FlagComponent = Cr;
+            break;
+        case 'Ci':
+            FlagComponent = Ci;
+            break;
+        case 'Hr':
+            FlagComponent = Hr;
+            break;
+        case 'Cu':
+            FlagComponent = Cu;
+            break;
+        case 'Cw':
+            FlagComponent = Cw;
+            break;
+        case 'Cy':
+            FlagComponent = Cy;
+            break;
+        case 'Cz':
+            FlagComponent = Cz;
+            break;
+        case 'Dk':
+            FlagComponent = Dk;
+            break;
+        case 'Dj':
+            FlagComponent = Dj;
+            break;
+        case 'Dm':
+            FlagComponent = Dm;
+            break;
+        case 'Do':
+            FlagComponent = Do;
+            break;
+        case 'Ec':
+            FlagComponent = Ec;
+            break;
+        case 'Eg':
+            FlagComponent = Eg;
+            break;
+        case 'Sv':
+            FlagComponent = Sv;
+            break;
+        case 'Gq':
+            FlagComponent = Gq;
+            break;
+        case 'Er':
+            FlagComponent = Er;
+            break;
+        case 'Ee':
+            FlagComponent = Ee;
+            break;
+        case 'Et':
+            FlagComponent = Et;
+            break;
+        case 'Fk':
+            FlagComponent = Fk;
+            break;
+        case 'Fo':
+            FlagComponent = Fo;
+            break;
+        case 'Fj':
+            FlagComponent = Fj;
+            break;
+        case 'Fi':
+            FlagComponent = Fi;
+            break;
+        case 'Fr':
+            FlagComponent = Fr;
+            break;
+        case 'Pf':
+            FlagComponent = Pf;
+            break;
+        case 'Ga':
+            FlagComponent = Ga;
+            break;
+        case 'Gm':
+            FlagComponent = Gm;
+            break;
+        case 'Ge':
+            FlagComponent = Ge;
+            break;
+        case 'De':
+            FlagComponent = De;
+            break;
+        case 'Gh':
+            FlagComponent = Gh;
+            break;
+        case 'Gi':
+            FlagComponent = Gi;
+            break;
+        case 'Gr':
+            FlagComponent = Gr;
+            break;
+        case 'Gl':
+            FlagComponent = Gl;
+            break;
+        case 'Gd':
+            FlagComponent = Gd;
+            break;
+        case 'Gu':
+            FlagComponent = Gu;
+            break;
+        case 'Gt':
+            FlagComponent = Gt;
+            break;
+        case 'Gg':
+            FlagComponent = Gg;
+            break;
+        case 'Gn':
+            FlagComponent = Gn;
+            break;
+        case 'Gw':
+            FlagComponent = Gw;
+            break;
+        case 'Ht':
+            FlagComponent = Ht;
+            break;
+        case 'Hn':
+            FlagComponent = Hn;
+            break;
+        case 'Hk':
+            FlagComponent = Hk;
+            break;
+        case 'Hu':
+            FlagComponent = Hu;
+            break;
+        case 'Is':
+            FlagComponent = Is;
+            break;
+        case 'In':
+            FlagComponent = In;
+            break;
+        case 'Id':
+            FlagComponent = Id;
+            break;
+        case 'Ir':
+            FlagComponent = Ir;
+            break;
+        case 'Iq':
+            FlagComponent = Iq;
+            break;
+        case 'Ie':
+            FlagComponent = Ie;
+            break;
+        case 'Im':
+            FlagComponent = Im;
+            break;
+        case 'Il':
+            FlagComponent = Il;
+            break;
+        case 'It':
+            FlagComponent = It;
+            break;
+        case 'Jm':
+            FlagComponent = Jm;
+            break;
+        case 'Jp':
+            FlagComponent = Jp;
+            break;
+        case 'Je':
+            FlagComponent = Je;
+            break;
+        case 'Jo':
+            FlagComponent = Jo;
+            break;
+        case 'Kz':
+            FlagComponent = Kz;
+            break;
+        case 'Ke':
+            FlagComponent = Ke;
+            break;
+        case 'Ki':
+            FlagComponent = Ki;
+            break;
+        case 'Kp':
+            FlagComponent = Kp;
+            break;
+        case 'Kr':
+            FlagComponent = Kr;
+            break;
+        case 'Kw':
+            FlagComponent = Kw;
+            break;
+        case 'Kg':
+            FlagComponent = Kg;
+            break;
+        case 'La':
+            FlagComponent = La;
+            break;
+        case 'Lv':
+            FlagComponent = Lv;
+            break;
+        case 'Lb':
+            FlagComponent = Lb;
+            break;
+        case 'Ls':
+            FlagComponent = Ls;
+            break;
+        case 'Lr':
+            FlagComponent = Lr;
+            break;
+        case 'Ly':
+            FlagComponent = Ly;
+            break;
+        case 'Li':
+            FlagComponent = Li;
+            break;
+        case 'Lt':
+            FlagComponent = Lt;
+            break;
+        case 'Lu':
+            FlagComponent = Lu;
+            break;
+        case 'Mo':
+            FlagComponent = Mo;
+            break;
+        case 'Mk':
+            FlagComponent = Mk;
+            break;
+        case 'Mg':
+            FlagComponent = Mg;
+            break;
+        case 'Mw':
+            FlagComponent = Mw;
+            break;
+        case 'My':
+            FlagComponent = My;
+            break;
+        case 'Mv':
+            FlagComponent = Mv;
+            break;
+        case 'Ml':
+            FlagComponent = Ml;
+            break;
+        case 'Mt':
+            FlagComponent = Mt;
+            break;
+        case 'Mh':
+            FlagComponent = Mh;
+            break;
+        case 'Mq':
+            FlagComponent = Mq;
+            break;
+        case 'Mr':
+            FlagComponent = Mr;
+            break;
+        case 'Mu':
+            FlagComponent = Mu;
+            break;
+        case 'Mx':
+            FlagComponent = Mx;
+            break;
+        case 'Fm':
+            FlagComponent = Fm;
+            break;
+        case 'Md':
+            FlagComponent = Md;
+            break;
+        case 'Mc':
+            FlagComponent = Mc;
+            break;
+        case 'Mn':
+            FlagComponent = Mn;
+            break;
+        case 'Me':
+            FlagComponent = Me;
+            break;
+        case 'Ms':
+            FlagComponent = Ms;
+            break;
+        case 'Ma':
+            FlagComponent = Ma;
+            break;
+        case 'Mz':
+            FlagComponent = Mz;
+            break;
+        case 'Mm':
+            FlagComponent = Mm;
+            break;
+        case 'Na':
+            FlagComponent = Na;
+            break;
+        case 'Nr':
+            FlagComponent = Nr;
+            break;
+        case 'Np':
+            FlagComponent = Np;
+            break;
+        case 'Nl':
+            FlagComponent = Nl;
+            break;
+        case 'Nz':
+            FlagComponent = Nz;
+            break;
+        case 'Ni':
+            FlagComponent = Ni;
+            break;
+        case 'Ne':
+            FlagComponent = Ne;
+            break;
+        case 'Ng':
+            FlagComponent = Ng;
+            break;
+        case 'Nu':
+            FlagComponent = Nu;
+            break;
+        case 'Nf':
+            FlagComponent = Nf;
+            break;
+        case 'Mp':
+            FlagComponent = Mp;
+            break;
+        case 'No':
+            FlagComponent = No;
+            break;
+        case 'Om':
+            FlagComponent = Om;
+            break;
+        case 'Pk':
+            FlagComponent = Pk;
+            break;
+        case 'Pw':
+            FlagComponent = Pw;
+            break;
+        case 'Ps':
+            FlagComponent = Ps;
+            break;
+        case 'Pa':
+            FlagComponent = Pa;
+            break;
+        case 'Pg':
+            FlagComponent = Pg;
+            break;
+        case 'Py':
+            FlagComponent = Py;
+            break;
+        case 'Pe':
+            FlagComponent = Pe;
+            break;
+        case 'Ph':
+            FlagComponent = Ph;
+            break;
+        case 'Pn':
+            FlagComponent = Pn;
+            break;
+        case 'Pl':
+            FlagComponent = Pl;
+            break;
+        case 'Pt':
+            FlagComponent = Pt;
+            break;
+        case 'Pr':
+            FlagComponent = Pr;
+            break;
+        case 'Qa':
+            FlagComponent = Qa;
+            break;
+        case 'Ro':
+            FlagComponent = Ro;
+            break;
+        case 'Ru':
+            FlagComponent = Ru;
+            break;
+        case 'Rw':
+            FlagComponent = Rw;
+            break;
+        case 'Kn':
+            FlagComponent = Kn;
+            break;
+        case 'Lc':
+            FlagComponent = Lc;
+            break;
+        case 'Ws':
+            FlagComponent = Ws;
+            break;
+        case 'Sm':
+            FlagComponent = Sm;
+            break;
+        case 'St':
+            FlagComponent = St;
+            break;
+        case 'Sa':
+            FlagComponent = Sa;
+            break;
+        case 'Sn':
+            FlagComponent = Sn;
+            break;
+        case 'Rs':
+            FlagComponent = Rs;
+            break;
+        case 'Sc':
+            FlagComponent = Sc;
+            break;
+        case 'Sl':
+            FlagComponent = Sl;
+            break;
+        case 'Sg':
+            FlagComponent = Sg;
+            break;
+        case 'Sx':
+            FlagComponent = Sx;
+            break;
+        case 'Sk':
+            FlagComponent = Sk;
+            break;
+        case 'Si':
+            FlagComponent = Si;
+            break;
+        case 'Sb':
+            FlagComponent = Sb;
+            break;
+        case 'So':
+            FlagComponent = So;
+            break;
+        case 'Za':
+            FlagComponent = Za;
+            break;
+        case 'Ss':
+            FlagComponent = Ss;
+            break;
+        case 'Es':
+            FlagComponent = Es;
+            break;
+        case 'Lk':
+            FlagComponent = Lk;
+            break;
+        case 'Sd':
+            FlagComponent = Sd;
+            break;
+        case 'Sr':
+            FlagComponent = Sr;
+            break;
+        case 'Sz':
+            FlagComponent = Sz;
+            break;
+        case 'Se':
+            FlagComponent = Se;
+            break;
+        case 'Ch':
+            FlagComponent = Ch;
+            break;
+        case 'Sy':
+            FlagComponent = Sy;
+            break;
+        case 'Tw':
+            FlagComponent = Tw;
+            break;
+        case 'Tj':
+            FlagComponent = Tj;
+            break;
+        case 'Tz':
+            FlagComponent = Tz;
+            break;
+        case 'Th':
+            FlagComponent = Th;
+            break;
+        case 'Tg':
+            FlagComponent = Tg;
+            break;
+        case 'Tk':
+            FlagComponent = Tk;
+            break;
+        case 'To':
+            FlagComponent = To;
+            break;
+        case 'Tt':
+            FlagComponent = Tt;
+            break;
+        case 'Tn':
+            FlagComponent = Tn;
+            break;
+        case 'Tr':
+            FlagComponent = Tr;
+            break;
+        case 'Tm':
+            FlagComponent = Tm;
+            break;
+        case 'Tc':
+            FlagComponent = Tc;
+            break;
+        case 'Tv':
+            FlagComponent = Tv;
+            break;
+        case 'Ug':
+            FlagComponent = Ug;
+            break;
+        case 'Ua':
+            FlagComponent = Ua;
+            break;
+        case 'Ae':
+            FlagComponent = Ae;
+            break;
+        case 'Gb':
+            FlagComponent = Gb;
+            break;
+        case 'Us':
+            FlagComponent = Us;
+            break;
+        case 'Uy':
+            FlagComponent = Uy;
+            break;
+        case 'Uz':
+            FlagComponent = Uz;
+            break;
+        case 'Vu':
+            FlagComponent = Vu;
+            break;
+        case 'Ve':
+            FlagComponent = Ve;
+            break;
+        case 'Vn':
+            FlagComponent = Vn;
+            break;
+        case 'Vi':
+            FlagComponent = Vi;
+            break;
+        case 'Ye':
+            FlagComponent = Ye;
+            break;
+        case 'Zm':
+            FlagComponent = Zm;
+            break;
+        case 'Zw':
+            FlagComponent = Zw;
+            break;
+        // Add more cases for additional countries
+        default:
+            // Handle case where the flag component is not found
+            FlagComponent = null;
+    }
+    
+    // Add an entry to the countriesList array
+    countriesList.push({
+        CountryName: countries[countryCode],
+        code: <FlagComponent />,
+    });
+}
+
+export default countriesList;
