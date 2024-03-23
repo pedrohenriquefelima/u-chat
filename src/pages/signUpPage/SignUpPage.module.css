@@ -1,9 +1,12 @@
 .container {
     display: flex;
-    height: 90vh;
+    position: relative;
+    flex-direction: column-reverse;
+    height: 92vh;
+    width: 100vw;
 }
 
-.form-side {
+/* .form-side {
     flex: 1;
     min-width: 55%;
     display: flex;
@@ -24,5 +27,5 @@
     .add-side {
         display: none;
     }
-}
+} */
 

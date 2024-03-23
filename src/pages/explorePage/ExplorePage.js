@@ -47,12 +47,4 @@ const ExplorePage = () => {
         </div>
     )
 }
-
-/** error snipt
- * <div className={styles['image-empty-container']}>
-                <img className={styles['image-empty']} src={EmptyUsersState} alt='error'/>
-                <p>{error.message}</p>
-            </div>
- */
-
 export default ExplorePage;

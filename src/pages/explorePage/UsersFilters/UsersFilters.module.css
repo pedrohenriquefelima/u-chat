@@ -45,21 +45,6 @@
     background-color: #737373;
 }
 
-.dropdown-ul {
-    position: absolute; /* Position below the triggering element */
-    margin-top: 10px;
-    width: 450px;
-    height: 350px;
-    overflow:scroll;
-    background-color: white;
-    padding: 20px 20px;
-    border: 2px solid #737373;
-    border-radius: 10px;
-    text-align: left;
-  }
-
-
-
   .type-here {
     width: 98%;
     height: 45px;
@@ -90,36 +75,7 @@
     color: #131313; /* Set the color you desire */
   }
 
-  .group-title {
-    height: 30px;
-    line-height: 22px;
-    color: #515164;
-    font-weight: bold;
-  }
-
-  /* .option-item-hover:hover{
-    background-color: #E2E5E9;
-  } */
-  /*#0f0f0f;*/
-  
-  /* .item-hide {
-    display:none;
-  } */
-
-  /* .item-show {
-    display: block;
-  } */
-
-  .option-container {
-    margin-bottom: 10px;
-  }
-  
-  .option-item-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .flagcontainer {
-    display: flex;
-    flex-direction: column;
+  .parent-button-relative {
+    position: relative;
+    background-color: aqua;
   }

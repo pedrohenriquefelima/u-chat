@@ -1,5 +1,6 @@
 .header-container {
-    padding: 10px 40px 20px 40px;
+    padding: 10px 40px 0px 40px;
+    border-bottom: 2px solid grey;
 }
 
 .users-container-outer {
