@@ -1,7 +1,21 @@
 import { useEffect } from "react";
 import SignInUp from "../../components/forms/SignInUp/SignInUp";
 import styles from './SignUpPage.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareXTwitter, faSquareFacebook, faLinkedin, faSquareInstagram, faSquareGooglePlus} from '@fortawesome/free-brands-svg-icons';
+
+
+
 const SignUpPage = () => {
+
+    let Icons = [
+        { name: faSquareFacebook, link: "" },
+        { name: faSquareXTwitter, link: "" },
+        { name: faLinkedin, link: "" },
+        { name: faSquareInstagram, link: "" },
+        { name: faSquareGooglePlus, link: "" },
+      ];
+
     useEffect(()=>{
         const screenSizeHeight = window.innerHeight;
         const screenWidth = window.innerWidth;
@@ -13,6 +27,17 @@ const SignUpPage = () => {
         <div className={styles.container} >
             <div className={styles.boxSignInUp}>
                 <p>Create your account</p>
+                <div className={styles.social}>
+                        <FontAwesomeIcon icon={Icons[0].name} size="2xl" style={{color: "#316FF6", marginRight: '18px', cursor: 'pointer'}}/>
+                        <FontAwesomeIcon icon={Icons[1].name} size="2xl" style={{color: "#000000", marginRight: '18px', cursor: 'pointer'}}/>
+                        <FontAwesomeIcon icon={Icons[4].name} size="2xl" style={{color: "#CD4636", cursor: 'pointer'}}/>
+                </div>
+                <div className={styles.linesOr}>
+                    <hr></hr>
+                    <span>OR</span>
+                    <hr></hr>
+                </div>
+                
             </div>
             <svg className={styles.svgContainer} id="visual" viewBox='0 0 960 505' preserveAspectRatio="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1">
                 <path d="M0 395L17.8 393.8C35.7 392.7 71.3 390.3 106.8 387.5C142.3 384.7 177.7 381.3 213.2 384.2C248.7 387 284.3 396 320 399.8C355.7 403.7 391.3 402.3 426.8 400.5C462.3 398.7 497.7 396.3 533.2 396.5C568.7 396.7 604.3 399.3 640 398C675.7 396.7 711.3 391.3 746.8 384.7C782.3 378 817.7 370 853.2 364.3C888.7 358.7 924.3 355.3 942.2 353.7L960 352L960 541L942.2 541C924.3 541 888.7 541 853.2 541C817.7 541 782.3 541 746.8 541C711.3 541 675.7 541 640 541C604.3 541 568.7 541 533.2 541C497.7 541 462.3 541 426.8 541C391.3 541 355.7 541 320 541C284.3 541 248.7 541 213.2 541C177.7 541 142.3 541 106.8 541C71.3 541 35.7 541 17.8 541L0 541Z" fill="#ffc374">

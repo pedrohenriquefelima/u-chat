@@ -20,6 +20,7 @@
 .boxSignInUp p {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
+    font-weight: 500;
     font-style: normal;
     font-size: 20px;
 }
@@ -29,4 +30,27 @@
     top: 0;
     left: 0;
     z-index: -1;
+}
+
+.social {
+    margin: 20px auto;
+    max-width: 150px;
+    text-align: center;
+}
+
+.linesOr {
+    display: flex;
+    margin-top: 28px;
+    flex-direction: row;
+    height: 14px;
+    line-height: 10px;
+}
+.linesOr hr {
+    width: 45%;
+    height: 1px;
+    margin-top: 5px;
+}
+.linesOr span {
+    margin: 0 15px;
+    font-family: "Roboto", sans-serif;
 }
